@@ -1,5 +1,4 @@
 
-from __future__ import print_function
 import keras
 from keras.layers import Dense, Conv2D, BatchNormalization, Activation
 from keras.layers import AveragePooling2D, Input, Flatten
@@ -11,8 +10,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.regularizers import l2
 from keras import backend as K
 from keras.models import Model
-from keras.datasets import cifar10
-from models import resnext, resnet_v1, resnet_v2, mobilenets, inception_v3, inception_resnet_v2, densenet
+from models import resnet_v1
 from utils import lr_schedule
 import numpy as np
 import os
@@ -24,8 +22,6 @@ import csv
 import glob
 import cv2
 import time
-from FFT import HR_BP_RR
-from NMF import image_NMF
 import scipy.signal as signal
 import scipy.fftpack as fftpack
 os.environ["CUDA_VISIBLE_DEVICES"] = "2,3"
