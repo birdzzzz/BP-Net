@@ -133,7 +133,7 @@ def load_data(path): ###归一化
     labelarr = []
 
 
-    bmipath = r'/home/som/lab/jmr/CBAM-keras-master/CBAM-keras-master/info1.csv'
+    bmipath = r'/home/som/lab/jmr/BP-Net/info1.csv'
 
     date = os.listdir(path)
 
@@ -313,7 +313,7 @@ model.compile(optimizer=Adam(lr=lr_schedule(0)), loss=loss, metrics=[metrics.Mea
 print(model_type)
 
 save_dir = os.path.join(os.getcwd(), 'saved_models')
-model_name = 'columnBP715.hdf5'
+model_name = 'SEBP715.hdf5'
 if not os.path.isdir(save_dir):
     os.makedirs(save_dir)
 filepath = os.path.join(save_dir, model_name)
@@ -331,7 +331,7 @@ lr_reducer = ReduceLROnPlateau(factor=np.sqrt(0.1),
                                cooldown=0,
                                patience=5,
                                min_lr=0.5e-6)
-csv_logger = CSVLogger('column715.csv')
+csv_logger = CSVLogger('SE715.csv')
 callbacks = [checkpoint, lr_reducer, lr_scheduler,csv_logger]
 # Run training, with or without data augmentation.
 if not data_augmentation:
